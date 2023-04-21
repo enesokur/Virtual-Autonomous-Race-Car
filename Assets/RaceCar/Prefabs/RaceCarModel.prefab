@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7103794888406384053}
   - component: {fileID: 3422267634968911653}
   - component: {fileID: 2273812279649098868}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: f1_car1_front_wheel_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,6 +83,55 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2241993081414309649
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1681212808351171577}
+  - component: {fileID: 1524914123542330441}
+  m_Layer: 2
+  m_Name: CheckpointManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1681212808351171577
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2241993081414309649}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5171921441805586823}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1524914123542330441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2241993081414309649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fd2b93c9d4fb2143adad0725d47370b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxTimeToReachNextCheckpoint: 45
+  TimeLeft: 45
+  carAgent: {fileID: 0}
+  nextCheckPointToReach: {fileID: 0}
+  Map: {fileID: 0}
 --- !u!1 &2251950549207021518
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,7 +143,7 @@ GameObject:
   - component: {fileID: 6316858160602882987}
   - component: {fileID: 5129388176016825038}
   - component: {fileID: 8259797014164015671}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: f1_car1_parts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +226,7 @@ GameObject:
   - component: {fileID: 7253392061094129811}
   - component: {fileID: 2819568601893693759}
   - component: {fileID: 8848146871584463146}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: f1_car1_pilot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +309,7 @@ GameObject:
   - component: {fileID: 4739087905034189817}
   - component: {fileID: 2243584601587509343}
   - component: {fileID: 5101340980691162800}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: f1_car1_rear_wheel_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +392,7 @@ GameObject:
   - component: {fileID: 2343562763304667442}
   - component: {fileID: 8834309269623365414}
   - component: {fileID: 4278443593577089561}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: f1_car1_front_wheel_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -424,8 +473,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5171921441805586823}
-  m_Layer: 0
-  m_Name: F1Car_Model1-Decal1
+  - component: {fileID: 8047669992567796657}
+  - component: {fileID: 3643465216261370418}
+  - component: {fileID: 4136756925728791796}
+  - component: {fileID: 2681402660008885320}
+  - component: {fileID: 233953345025178237}
+  - component: {fileID: 9029870064510034140}
+  - component: {fileID: 4011463003368690806}
+  m_Layer: 2
+  m_Name: RaceCarModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -450,9 +506,144 @@ Transform:
   - {fileID: 7253392061094129811}
   - {fileID: 4739087905034189817}
   - {fileID: 6356745805008253702}
+  - {fileID: 1681212808351171577}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &8047669992567796657
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5516218546167483197}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
+--- !u!65 &3643465216261370418
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5516218546167483197}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.4625971, z: 6.479136}
+  m_Center: {x: 0, y: 0.68417513, z: 0.39553523}
+--- !u!114 &4136756925728791796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5516218546167483197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 636c38c0e504ca6438e4a8fa7a995aca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forwardSpeed: 30
+  turnSpeed: 120
+  leftFrontWheel: {fileID: 933309275276564401}
+  rightFrontWheel: {fileID: 4592347216796833592}
+  leftBackWheel: {fileID: 3582889504106439844}
+  rightBackWheel: {fileID: 8524868704978170734}
+--- !u!114 &2681402660008885320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5516218546167483197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 3
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 2
+      BranchSizes: 
+    VectorActionSize: 02000000
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 1
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 3
+  m_BehaviorType: 0
+  m_BehaviorName: RaceCarAgent
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
+--- !u!114 &233953345025178237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5516218546167483197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c56bd00cd26d7b438665db571e92db7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  _checkpointManager: {fileID: 0}
+--- !u!114 &9029870064510034140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5516218546167483197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DecisionPeriod: 5
+  TakeActionsBetweenDecisions: 1
+--- !u!114 &4011463003368690806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5516218546167483197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb6b867a41448888c1cd4f99643ad71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SensorName: RayPerceptionSensor
+  m_DetectableTags: []
+  m_RaysPerDirection: 3
+  m_MaxRayDegrees: 70
+  m_SphereCastRadius: 0.5
+  m_RayLength: 20
+  m_RayLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967291
+  m_ObservationStacks: 1
+  rayHitColor: {r: 1, g: 0, b: 0, a: 1}
+  rayMissColor: {r: 1, g: 1, b: 1, a: 1}
+  m_StartVerticalOffset: 0
+  m_EndVerticalOffset: 0
 --- !u!1 &7851330723707685621
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,7 +655,7 @@ GameObject:
   - component: {fileID: 3280635616311693204}
   - component: {fileID: 7808972890963851240}
   - component: {fileID: 465367112299412590}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: f1_car1_body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -547,7 +738,7 @@ GameObject:
   - component: {fileID: 6356745805008253702}
   - component: {fileID: 8282734686371127911}
   - component: {fileID: 5738940856225953404}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: f1_car1_rear_wheel_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
